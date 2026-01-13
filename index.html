@@ -7,12 +7,11 @@
     
     <link rel="icon" type="image/png" href="https://drive.google.com/thumbnail?id=1LVUIxSi5K30h_2duGxfVn1PNmYUyv8Cg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* New Logo Colors */
             --orange: #F39200;
             --blue: #5B9BD5;
             --grey: #666666;
@@ -28,7 +27,16 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--dark-grey); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--dark-grey); 
+            background: var(--white); 
+            /* Harf netliği için bu ayarları güncelledim */
+            -webkit-font-smoothing: initial; 
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
 
         /* --- TOP INFO BAR --- */
         .top-specs {
@@ -98,22 +106,12 @@
         }
         .img-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
         
-        /* After (Restored) */
-        .after-img { 
-            background-image: url('https://drive.google.com/thumbnail?id=1zQINvJ3rMxaQUhuBir9L4uNzPGH5K5Ng&sz=w1200'); 
-            z-index: 1;
-        }
-        /* Before (Revision) */
-        .before-img { 
-            background-image: url('https://drive.google.com/thumbnail?id=1dLNeicX-jWomZwwwENR2feOcVhFDz7tz&sz=w1200'); 
-            width: 50%; border-right: 4px solid var(--orange); z-index: 2; 
-        }
+        .after-img { background-image: url('https://drive.google.com/thumbnail?id=1zQINvJ3rMxaQUhuBir9L4uNzPGH5K5Ng&sz=w1200'); z-index: 1; }
+        .before-img { background-image: url('https://drive.google.com/thumbnail?id=1dLNeicX-jWomZwwwENR2feOcVhFDz7tz&sz=w1200'); width: 50%; border-right: 4px solid var(--orange); z-index: 2; }
         
         .handle { position: absolute; z-index: 10; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: var(--orange); border-radius: 50%; border: 4px solid white; cursor: ew-resize; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 0 30px rgba(0,0,0,0.3); }
 
-        .slider-label {
-            position: absolute; top: 20px; padding: 6px 15px; font-size: 0.7rem; font-weight: 800; z-index: 5; border-radius: 2px; pointer-events: none;
-        }
+        .slider-label { position: absolute; top: 20px; padding: 6px 15px; font-size: 0.7rem; font-weight: 800; z-index: 5; border-radius: 2px; pointer-events: none; }
         .label-before { left: 20px; background: rgba(0,0,0,0.8); color: white; }
         .label-after { right: 20px; background: var(--blue); color: white; }
 
@@ -122,9 +120,7 @@
         .iso-section h2 { font-family: 'Montserrat', sans-serif; margin-bottom: 50px; font-size: 2.2rem; color: var(--dark-grey); }
         .iso-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         
-        .iso-thumb {
-            background: white; padding: 20px; border-radius: 12px; text-decoration: none; color: var(--dark-grey); transition: 0.4s; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        .iso-thumb { background: white; padding: 20px; border-radius: 12px; text-decoration: none; color: var(--dark-grey); transition: 0.4s; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .iso-thumb:hover { transform: translateY(-10px); border-color: var(--blue); }
         .iso-thumb img { width: 100%; height: 250px; object-fit: contain; margin-bottom: 20px; background: #fafafa; padding: 20px; border-radius: 8px; }
         .iso-thumb span { color: var(--orange); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-top: 10px; display: block; }
@@ -167,21 +163,16 @@
         }
         .footer-logo { height: 70px; width: auto; display: block; }
         
-        .footer-title { 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; font-size: 0.85rem; 
-            margin-bottom: 30px; 
-            color: var(--white); 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            position: relative;
+        /* Sorunlu Paragraf İçin Özel Stil */
+        .footer-tagline {
+            font-size: 0.95rem; 
+            line-height: 1.8; 
+            font-weight: 500; /* 400 yerine 500 yaparak i noktalarını belirginleştirdik */
+            letter-spacing: 0.01em; /* Harfleri çok hafif açarak renderı rahatlattık */
         }
-        .footer-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px; left: 0; width: 30px; height: 2px;
-            background: var(--orange);
-        }
+
+        .footer-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem; margin-bottom: 30px; color: var(--white); text-transform: uppercase; letter-spacing: 2px; position: relative; }
+        .footer-title::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 30px; height: 2px; background: var(--orange); }
         
         .footer-info { list-style: none; }
         .footer-info li { display: flex; gap: 15px; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.6; }
@@ -189,12 +180,7 @@
         .footer-info a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
         .footer-info a:hover { color: var(--orange); }
         
-        .footer-bottom { 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            margin-top: 80px; padding-top: 30px; 
-            text-align: center; font-size: 0.75rem; 
-            color: #64748b; letter-spacing: 1px;
-        }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); margin-top: 80px; padding-top: 30px; text-align: center; font-size: 0.75rem; color: #64748b; letter-spacing: 1px; }
 
         @media (max-width: 1024px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
@@ -273,7 +259,7 @@
                 <div class="footer-logo-wrapper">
                     <img src="https://drive.google.com/thumbnail?id=11y33kQrFEgVM8kBbCcd9hOstUX4e1wNj" alt="Slipring Electric Inc." class="footer-logo">
                 </div>
-                <p style="font-size: 0.9rem; line-height: 1.8;">Turkey's first certified slip ring restoration center providing engineering solutions focused on defense and energy.</p>
+                <p class="footer-tagline">Turkey's first certified slip ring restoration center providing engineering solutions focused on defense and energy.</p>
             </div>
             <div>
                 <h4 class="footer-title">ADDRESS</h4>
